@@ -20,70 +20,77 @@ It is designed to prevent common AI-generated frontend failures: generic gradien
 
 ## Why This Exists
 
-The current AI frontend landscape is strong at generating code and shipping prototypes quickly, but most tools optimize for execution surfaces rather than design discipline.
+The closest peers are not app builders like v0 or Lovable, and not IDEs like Cursor or Windsurf. The relevant comparison set is other frontend/design skills for AI agents:
 
-Examples from the landscape:
+- [UI/UX Pro Max](https://nextlevelbuilder-ui-ux-pro-max-skill.mintlify.app/) emphasizes design intelligence through searchable datasets: UI styles, palettes, font pairings, product categories, UX guidelines, stack rules, and a design-system generator.
+- [Impeccable](https://impeccable.style/) gives agents design fluency through deep references and command-style steering for typography, color, motion, spatial design, interaction, responsive behavior, and UX writing.
+- [Anthropic Frontend Design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) focuses on distinctive, production-grade frontend interfaces by forcing an intentional aesthetic direction before implementation.
+- [Open Design](https://opendesigner.io/) is a larger open-source ecosystem with many skills, design systems, visual directions, exports, and local-first workflows.
 
-- [v0 by Vercel](https://v0.app/docs) is an AI agent for creating real code, full-stack apps, live prototypes, high-fidelity UI from prompts or mockups, and Vercel deployment.
-- [Lovable](https://docs.lovable.dev/introduction/welcome) is a full-stack AI development platform that can generate working applications with frontend, backend, database, authentication, integrations, GitHub sync, and deployment workflows.
-- [Bolt](https://support.bolt.new/building/intro-bolt) is an AI-powered builder for websites, web apps, and mobile apps, with in-browser development, hosting, databases, domains, and model choice.
-- IDE agents such as [Windsurf Cascade](https://windsurf.com/cascade) and rule systems such as [Cursor Rules](https://docs.cursor.com/context/rules-for-ai) focus on coding workflow context, file edits, commands, project rules, live previews, deployment, and developer productivity.
-- Native agent skill systems, such as [Claude Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview), provide a progressive-disclosure package format: metadata, main instructions, references, and executable scripts loaded only when needed.
+Those projects are useful. They also reveal the main tension in AI design skills: a skill can become a style catalog, a command vocabulary, a preset library, or a methodology.
 
-Web Design Discipline is different: it is not a prompt-to-app platform, not a hosted builder, not a component library, and not a framework starter. It is a portable decision and quality layer that can sit above any capable coding agent or UI generator.
+Web Design Discipline is intentionally the methodology layer.
 
-The core idea:
+Most AI design skills improve the default output by giving the agent more style knowledge: "fintech dashboard" maps to a palette, a type pairing, a layout archetype, or a named aesthetic. That is valuable, but it can fail when the domain is ambiguous, the product has strong constraints, the interface is not a marketing page, or the agent must explain why a design decision is appropriate.
+
+This skill takes the opposite starting point. It does not ask the agent to pick a style first. It gives the agent a pipeline:
 
 ```text
-Generator gives speed.
-Component library gives primitives.
-Design system gives consistency.
-Web Design Discipline gives judgment, constraints, task flow, taste, and QA.
+Hard constraints cut off AI slop before generation.
+Journey brief defines user goal, objections, risk, and success state.
+Taste dial propagates variance, motion, and density across decisions.
+Curated style directions carry parameters and anti-signals.
+Before/after patterns teach concrete repairs.
+References cover the task-specific domain.
+Executable scripts validate the result.
 ```
 
-It tells an agent what to care about before and after code generation:
+The concept:
 
-- what kind of surface is being designed;
-- which domain and risk level should shape the visual language;
-- which common AI-design patterns must be rejected;
-- when to use density, restraint, motion, data visualization, SEO/GEO, localization, or accessibility rules;
-- which references to load for the current task;
-- how to validate the result in browser screenshots and audit scripts.
+```text
+Style catalogs answer: "What should this look like?"
+Command skills answer: "How do I steer the model?"
+Design-system libraries answer: "Which reusable system can I apply?"
+Web Design Discipline answers: "How should the agent reason from task to visual decision to validation?"
+```
+
+It is meant to sit around any coding agent or UI generator as a design discipline layer: before generation, during implementation, and during final browser QA.
 
 ## How It Differs
 
-| Category | Typical focus | Web Design Discipline focus |
+| Peer category | Typical strength | Web Design Discipline focus |
 |---|---|---|
-| Prompt-to-app builders | Generate a working app from natural language; often include hosting, backend, auth, database, deployment. | Improve the design reasoning and QA of whatever agent or builder is used. |
-| AI UI generators | Quickly create UI components/pages, often tied to React, Tailwind, shadcn/ui, or a deployment ecosystem. | Stay stack-neutral; define visual direction, constraints, responsive behavior, accessibility, and anti-slop rules. |
-| IDE agents and rules | Help code faster inside a repo, follow project conventions, edit files, run commands. | Add frontend-specific design judgment that normal coding rules rarely encode deeply. |
-| Component libraries | Provide accessible primitives, components, tokens, variants. | Decide when to use those primitives, how to theme them, and how to avoid generic library-looking output. |
-| Agent skill systems | Provide a packaging/loading mechanism for task-specific instructions and scripts. | Use that mechanism for a specific discipline: modern web interface design and review. |
+| Style/resource databases | Broad coverage, fast matching, many palettes/styles/fonts/patterns. | Fewer presets, deeper decision flow, explicit constraints, and validation. |
+| Command-driven design skills | Strong steering vocabulary and critique actions. | Pipeline-first workflow that works even when the user does not know design vocabulary. |
+| Aesthetic-direction skills | Better visual distinctiveness and anti-generic guidance. | Adds UX journey, domain risk, localization, SEO/GEO, data-viz, and scriptable QA. |
+| Design-system libraries | Reusable brand/system presets and tokens. | Decides when a system fits, when it is too generic, and how to validate the resulting UI. |
+| Full design ecosystems | Many skills, exports, systems, previews, and workflows. | A compact, agent-portable discipline pack focused on reasoning quality rather than ecosystem breadth. |
 
 ## Advantages
 
-- **Portable**: works as an instruction pack for any agent that can read files.
-- **Stack-neutral**: useful with static HTML/CSS, React, Vue, Svelte, Tailwind, component libraries, or custom CSS.
-- **Progressive**: `SKILL.md` routes the agent to focused references instead of loading everything.
-- **Taste-aware**: includes hard constraints, style directions, taste dial, domain defaults, before/after fixes, and anti-patterns.
-- **Task-first**: starts with user journey, domain, page type, entry context, risk, and success state.
-- **Quality-oriented**: covers responsive QA, accessibility, visual QA, data visualization, Russian copy, SEO/GEO, localization, and performance risks.
-- **Practical**: includes Node/Playwright audit scripts for repeatable checks.
+- **Full pipeline**: constraints -> journey -> taste dial -> style direction -> implementation rules -> validation.
+- **Journey-first UX**: user goal, entry context, objections, risk, and success state come before visual choice.
+- **Taste dial**: design variance, motion budget, and visual density propagate through the whole task without rewriting prompts.
+- **Curated directions with anti-signals**: 21 hand-picked directions, each with "do this" and "never do this" guidance.
+- **Concrete before/after repairs**: 10 fix patterns for common AI-slop shapes such as cookie-cutter heroes, KPI galleries, bento landings, weak forms, and generic dashboards.
+- **Executable QA**: three scripts for HTML/CSS audit, responsive scan, and visual overlap/screenshot checks.
+- **Beyond default English SaaS**: first-class Russian UI copy, Russia/US/China cultural localization, SEO, and GEO/AI-friendly content structure.
+- **Portable and stack-neutral**: works with any agent that can read files and any frontend stack the project already uses.
 
 ## Out Of Scope
 
 This pack deliberately does not try to be:
 
-- a hosted app builder;
-- a replacement for v0, Lovable, Bolt, Cursor, Windsurf, Claude, Codex, or another coding agent;
-- a full-stack scaffold for backend, database, auth, payments, storage, or deployment;
+- instant style matching by keyword search;
+- brand cloning from a URL, screenshot, or competitor reference;
+- a slash-command interface for live interactive design critique;
+- a library of 60+ brand-level design-system presets;
+- a visual mockup/image generator;
 - a component library or CSS framework;
-- a Figma/design-file generator;
-- a full brand strategy process;
-- a substitute for real user research, accessibility testing with users, legal/compliance review, or production observability;
-- a guarantee of good design without browser screenshots, real content, and human review.
+- a hosted app builder, full-stack scaffold, backend/auth/database/deployment workflow, or IDE;
+- a replacement for real user research, accessibility testing with users, legal/compliance review, or production observability.
 
-It is best used as the design discipline layer around generation and implementation, not as the generation engine itself.
+The tradeoff is deliberate: fewer presets, more reasoning. If you need one-click access to a Stripe-like palette or a large style database, use a style/resource skill. If you need an agent to reason about design decisions, validate its own output, and stop producing generic AI-slop under ambiguous constraints, use Web Design Discipline.
 
 ## How Agents Should Use It
 
