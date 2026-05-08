@@ -1,9 +1,9 @@
 ---
-name: web-design
+name: webdesign-discipline
 description: "Design, build, and review modern static frontends and web UI: landing pages, SaaS/admin apps, dashboards, ecommerce, content pages, portfolios, tools/editors, and immersive/game-like experiences. Use for frontend visual design, UX flows, responsive layout, component systems, typography, color, iconography, Russian UI copy, SEO/GEO, cultural localization, data visualization, accessibility, performance, and visual QA."
 ---
 
-# Web Design
+# Web Design Discipline
 
 Use this skill when creating or reviewing a browser UI where design quality matters. Optimized for static frontend and modern web apps built from scratch or improved from an existing codebase.
 

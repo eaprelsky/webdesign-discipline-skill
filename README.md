@@ -71,10 +71,10 @@ Common integration patterns:
 - Project-local agents: reference `SKILL.md` from `AGENTS.md`, `CLAUDE.md`, Cursor rules, opencode instructions, or an equivalent project instruction file.
 - One-off use: paste or attach `SKILL.md` to the agent, then let it request specific `references/` files as needed.
 
-For Codex/OpenAI-style local skills, the frontmatter skill name is `web-design`, so the folder can be installed as:
+For Codex/OpenAI-style local skills, the frontmatter skill name is `webdesign-discipline`, so the folder can be installed as:
 
 ```bash
-git clone https://github.com/eaprelsky/webdesign-discipline-skill.git "$CODEX_HOME/skills/web-design"
+git clone https://github.com/eaprelsky/webdesign-discipline-skill.git "$CODEX_HOME/skills/webdesign-discipline"
 ```
 
 ## Usage
@@ -88,7 +88,7 @@ Use the Web Design Discipline instructions to design and validate a modern respo
 Native skill invocation where supported:
 
 ```text
-Use $web-design to design and validate a modern responsive landing page for ...
+Use $webdesign-discipline to design and validate a modern responsive landing page for ...
 ```
 
 Example task:

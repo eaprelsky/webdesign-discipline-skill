@@ -1,7 +1,7 @@
 interface:
-  display_name: "Web Design"
-  short_description: "Design and QA modern web frontends"
+  display_name: "Web Design Discipline"
+  short_description: "Disciplined web UI design and QA"
   brand_color: "#2563EB"
-  default_prompt: "Use $web-design to design and validate a modern responsive frontend for this page."
+  default_prompt: "Use $webdesign-discipline to design and validate a modern responsive frontend for this page."
 policy:
   allow_implicit_invocation: true

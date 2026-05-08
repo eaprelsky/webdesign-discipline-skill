@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const target = process.argv[2];
-const outDir = process.argv[3] || "tmp/web-design-visual-audit";
+const outDir = process.argv[3] || "tmp/webdesign-discipline-visual-audit";
 
 if (!target) {
   console.error("Usage: node scripts/audit-visual.mjs <url> [out-dir]");
