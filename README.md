@@ -18,6 +18,73 @@ Use this pack when an agent needs to create or review:
 
 It is designed to prevent common AI-generated frontend failures: generic gradient heroes, card soup, fake metrics, weak typography, one-note palettes, inaccessible custom controls, broken mobile layouts, and decorative UI that does not serve a user task.
 
+## Why This Exists
+
+The current AI frontend landscape is strong at generating code and shipping prototypes quickly, but most tools optimize for execution surfaces rather than design discipline.
+
+Examples from the landscape:
+
+- [v0 by Vercel](https://v0.app/docs) is an AI agent for creating real code, full-stack apps, live prototypes, high-fidelity UI from prompts or mockups, and Vercel deployment.
+- [Lovable](https://docs.lovable.dev/introduction/welcome) is a full-stack AI development platform that can generate working applications with frontend, backend, database, authentication, integrations, GitHub sync, and deployment workflows.
+- [Bolt](https://support.bolt.new/building/intro-bolt) is an AI-powered builder for websites, web apps, and mobile apps, with in-browser development, hosting, databases, domains, and model choice.
+- IDE agents such as [Windsurf Cascade](https://windsurf.com/cascade) and rule systems such as [Cursor Rules](https://docs.cursor.com/context/rules-for-ai) focus on coding workflow context, file edits, commands, project rules, live previews, deployment, and developer productivity.
+- Native agent skill systems, such as [Claude Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview), provide a progressive-disclosure package format: metadata, main instructions, references, and executable scripts loaded only when needed.
+
+Web Design Discipline is different: it is not a prompt-to-app platform, not a hosted builder, not a component library, and not a framework starter. It is a portable decision and quality layer that can sit above any capable coding agent or UI generator.
+
+The core idea:
+
+```text
+Generator gives speed.
+Component library gives primitives.
+Design system gives consistency.
+Web Design Discipline gives judgment, constraints, task flow, taste, and QA.
+```
+
+It tells an agent what to care about before and after code generation:
+
+- what kind of surface is being designed;
+- which domain and risk level should shape the visual language;
+- which common AI-design patterns must be rejected;
+- when to use density, restraint, motion, data visualization, SEO/GEO, localization, or accessibility rules;
+- which references to load for the current task;
+- how to validate the result in browser screenshots and audit scripts.
+
+## How It Differs
+
+| Category | Typical focus | Web Design Discipline focus |
+|---|---|---|
+| Prompt-to-app builders | Generate a working app from natural language; often include hosting, backend, auth, database, deployment. | Improve the design reasoning and QA of whatever agent or builder is used. |
+| AI UI generators | Quickly create UI components/pages, often tied to React, Tailwind, shadcn/ui, or a deployment ecosystem. | Stay stack-neutral; define visual direction, constraints, responsive behavior, accessibility, and anti-slop rules. |
+| IDE agents and rules | Help code faster inside a repo, follow project conventions, edit files, run commands. | Add frontend-specific design judgment that normal coding rules rarely encode deeply. |
+| Component libraries | Provide accessible primitives, components, tokens, variants. | Decide when to use those primitives, how to theme them, and how to avoid generic library-looking output. |
+| Agent skill systems | Provide a packaging/loading mechanism for task-specific instructions and scripts. | Use that mechanism for a specific discipline: modern web interface design and review. |
+
+## Advantages
+
+- **Portable**: works as an instruction pack for any agent that can read files.
+- **Stack-neutral**: useful with static HTML/CSS, React, Vue, Svelte, Tailwind, component libraries, or custom CSS.
+- **Progressive**: `SKILL.md` routes the agent to focused references instead of loading everything.
+- **Taste-aware**: includes hard constraints, style directions, taste dial, domain defaults, before/after fixes, and anti-patterns.
+- **Task-first**: starts with user journey, domain, page type, entry context, risk, and success state.
+- **Quality-oriented**: covers responsive QA, accessibility, visual QA, data visualization, Russian copy, SEO/GEO, localization, and performance risks.
+- **Practical**: includes Node/Playwright audit scripts for repeatable checks.
+
+## Out Of Scope
+
+This pack deliberately does not try to be:
+
+- a hosted app builder;
+- a replacement for v0, Lovable, Bolt, Cursor, Windsurf, Claude, Codex, or another coding agent;
+- a full-stack scaffold for backend, database, auth, payments, storage, or deployment;
+- a component library or CSS framework;
+- a Figma/design-file generator;
+- a full brand strategy process;
+- a substitute for real user research, accessibility testing with users, legal/compliance review, or production observability;
+- a guarantee of good design without browser screenshots, real content, and human review.
+
+It is best used as the design discipline layer around generation and implementation, not as the generation engine itself.
+
 ## How Agents Should Use It
 
 1. Read `SKILL.md`.
